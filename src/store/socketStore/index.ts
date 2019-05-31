@@ -1,4 +1,4 @@
-import { observable, action, computed } from 'mobx'
+import { observable, action, computed, reaction } from 'mobx'
 
 import { StoreExt } from '@utils/reactExt'
 import { LOCALSTORAGE_KEYS } from '@constants/index'
@@ -24,6 +24,15 @@ export class SocketStore extends StoreExt {
     messages: ISocketStore.Message[] = []
     @observable
     notSupportPolling: boolean = localStorage.getItem(LOCALSTORAGE_KEYS.NOT_SUPPORT_POLLING) === 'true'
+
+    constructor() {
+        super()
+        reaction(() => this.messages.length, this.handleMessagesChanged)
+    }
+
+    handleMessagesChanged = () => {
+        console.log('handleMessagesChanged of store')
+    }
 
     @computed
     get isSocketIO() {
