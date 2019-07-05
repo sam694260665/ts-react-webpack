@@ -30,7 +30,7 @@ function Sider() {
             collapsed={sideBarCollapsed}
         >
             <div className={classnames(styles.logoBox, sideBarTheme === 'dark' && styles.dark)}>
-                <Icon type="ant-design" />
+                <Icon type="bulb" />
             </div>
             <SiderMenu />
             {!sideBarCollapsed && ChangeTheme}

@@ -5,6 +5,7 @@ interface CssExports {
   'login': string;
   'logoBox': string;
   'tips': string;
+  'title': string;
 }
 declare var cssExports: CssExports;
 export = cssExports;

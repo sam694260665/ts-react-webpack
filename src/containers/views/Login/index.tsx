@@ -11,7 +11,7 @@ const FormItem = Form.Item
 
 interface IProps extends FormComponentProps {}
 
-function Login({ form }: IProps) {
+const Login = ({ form }: IProps) => {
     const { authStore } = useRootStore()
 
     const [loading, setLoading] = React.useState(false)
@@ -37,7 +37,10 @@ function Login({ form }: IProps) {
         <div className={styles.login}>
             <Form onSubmit={submit} className={styles.form}>
                 <div className={styles.logoBox}>
-                    <Icon type="ant-design" />
+                    <Icon type="zhihu" />
+                </div>
+                <div className={styles.title}>
+                    <span>更专业的在线比较平台</span>
                 </div>
                 <FormItem hasFeedback>
                     {getFieldDecorator('account', {
@@ -65,7 +68,7 @@ function Login({ form }: IProps) {
                         <span>{intl.get('USERNAME')}: admin</span>
                         <span>{intl.get('PASSWORD')}: admin</span>
                     </div>
-                    <Button type="primary" htmlType="submit" block loading={loading}>
+                    <Button type="primary" htmlType="submit" size="large" block loading={loading}>
                         {intl.get('LOGIN')}
                     </Button>
                 </FormItem>
